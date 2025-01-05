@@ -1,0 +1,668 @@
+{
+  "dataPoints": [
+    {
+      "name": "massKg",
+      "type": "number",
+      "bounds": {
+        "type": "number",
+        "min": 0,
+        "max": 300,
+        "units": {
+          "type": "unit",
+          "val": [{
+            "unit": "kg",
+            "exponent": 1
+          }]
+        }
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 60
+      }
+    },
+    {
+      "name": "heightCm",
+      "type": "number",
+      "bounds": {
+        "type": "number",
+        "min": 3,
+        "max": 300,
+        "units": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        }
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 180
+      }
+    }
+  ],
+  "equations": [
+    {
+      "name": "bmi",
+      "root": {
+        "type": "call",
+        "functionName": "divide",
+        "params": [
+          {
+            "type": "call",
+            "functionName": "get_data_point",
+            "params": [
+              {
+                "type": "literal",
+                "value": {
+                  "type": "string",
+                  "val": "massKg"
+                }
+              }
+            ]
+          },
+          {
+            "type": "call",
+            "functionName": "power",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "divide",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "get_data_point",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "string",
+                          "val": "heightCm"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 100
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "literal",
+                "value": {
+                  "type": "number",
+                  "val": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "units": {
+    "definitions": [
+      {
+        "name": "Centimeters",
+        "short": "cm",
+        "system": "metric"
+      },
+      {
+        "name": "Kilograms",
+        "short": "kg",
+        "system": "metric"
+      },
+      {
+        "name": "Pounds",
+        "short": "lb",
+        "system": "imperial"
+      },
+      {
+        "name": "Inches",
+        "short": "in",
+        "system": "imperial"
+      },
+      {
+        "name": "Feet",
+        "short": "ft",
+        "system": "imperial"
+      }
+    ],
+    "conversions": [
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "in",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "divide",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 2.54
+              }
+            }
+          ]
+        }
+      },
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "in",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "multiply",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 2.54
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "ft",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "multiply",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 0.0328084
+              }
+            }
+          ]
+        }
+      },
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "ft",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "multiply",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 30.48
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "in",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "ft",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "divide",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 12
+              }
+            }
+          ]
+        }
+      },
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "ft",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "in",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "divide",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 12
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "kg",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "lb",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "multiply",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 2.2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "lb",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "kg",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "divide",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 2.2
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "componentRoot": {
+    "name": "grid_layout",
+    "data": {
+      "pc": [
+        ["title", "title", "units"],
+        ["height", "height", "mass"],
+        ["result", "result", "result"],
+        ["result", "result", "result"]
+      ],
+      "mobile": [
+        ["title", "title"],
+        ["units", "mass"],
+        ["height height"],
+        ["result", "result"],
+        ["result", "result"]
+      ],
+      "isRoot": true,
+      "areas": [
+        [
+          "units",
+          {
+            "name": "unit_system_selector",
+            "data": null
+          }
+        ],
+        ["title", {
+          "name": "text",
+          "data": {
+            "content": [
+              {
+                "type": "paragraph",
+                "align": "center",
+                "structure": "title",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "BMI Calculator"
+                  }
+                ]
+              }
+            ]
+          }
+        }],
+        [
+          "height",
+          {
+            "name": "numeric_input",
+            "data": {
+              "dpName": "heightCm",
+              "label": "Height",
+              "numberFormat": {
+                "rounding": {
+                  "precision": 1,
+                  "method": "decimalstrim"
+                },
+                "unitOptions": [
+                  [{
+                    "type": "unit",
+                    "val": [{
+                      "unit": "cm",
+                      "exponent": 1
+                    }]
+                  }],
+                  [{
+                    "type": "unit",
+                    "val": [{
+                      "unit": "in",
+                      "exponent": 1
+                    }]
+                  },{
+                    "type": "unit",
+                    "val": [{
+                      "unit": "ft",
+                      "exponent": 1
+                    }]
+                  }],
+                  [{
+                    "type": "unit",
+                    "val": [{
+                      "unit": "in",
+                      "exponent": 1
+                    }]
+                  }]
+                ]
+              }
+            }
+          }
+        ],
+        [
+          "mass",
+          {
+            "name": "numeric_input",
+            "data": {
+              "dpName": "massKg",
+              "label": "Weight",
+              "numberFormat": {
+                "rounding": {
+                  "precision": 1,
+                  "method": "decimalstrim"
+                },
+                "unitOptions": [
+                  [{
+                    "type": "unit",
+                    "val": [{
+                      "unit": "kg",
+                      "exponent": 1
+                    }]
+                  }],
+                  [{
+                    "type": "unit",
+                    "val": [{
+                      "unit": "lb",
+                      "exponent": 1
+                    }]
+                  }]
+                ]
+              }
+            }
+          }
+        ],
+        [
+          "result",
+          {
+            "name": "value_range",
+            "data": {
+              "label": "Your BMI",
+              "top": {
+                "value": {
+                  "type": "call",
+                  "functionName": "get_eq_value",
+                  "params": [
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "bmi"
+                      }
+                    }
+                  ]
+                },
+                "numberFormat": {
+                  "rounding": {
+                    "precision": 0,
+                    "method": "decimals"
+                  }
+                },
+                "ranges": {
+                  "type": "call",
+                  "functionName": "create_value_range",
+                  "params": [
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "number",
+                        "val": 10
+                      }
+                    },
+
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "number",
+                        "val": 18.5
+                      }
+                    },
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "red"
+                      }
+                    },
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "Underweight"
+                      }
+                    },
+
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "number",
+                        "val": 25
+                      }
+                    },
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "green"
+                      }
+                    },
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "Healthy"
+                      }
+                    },
+
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "number",
+                        "val": 30
+                      }
+                    },
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "orange"
+                      }
+                    },
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "Overweight"
+                      }
+                    },
+
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "number",
+                        "val": 50
+                      }
+                    },
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "red"
+                      }
+                    },
+                    {
+                      "type": "literal",
+                      "value": {
+                        "type": "string",
+                        "val": "Obese"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

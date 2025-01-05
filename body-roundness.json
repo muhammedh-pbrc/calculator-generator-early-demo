@@ -1,0 +1,3224 @@
+{
+  "dataPoints": [
+    {
+      "name": "massKg",
+      "type": "number",
+      "bounds": {
+        "type": "number",
+        "min": 0,
+        "max": 500,
+        "units": {
+          "type": "unit",
+          "val": [{
+            "unit": "kg",
+            "exponent": 1
+          }]
+        }
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 60
+      }
+    },
+    {
+      "name": "heightCm",
+      "type": "number",
+      "bounds": {
+        "type": "number",
+        "min": 0,
+        "max": 300,
+        "units": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        }
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 180
+      }
+    },
+    {
+      "name": "waistCm",
+      "type": "number",
+      "bounds": {
+        "type": "number",
+        "min": 0,
+        "max": 500,
+        "units": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        }
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 80
+      }
+    },
+    {
+      "name": "hipCm",
+      "type": "optional",
+      "bounds": {
+        "type": "optional",
+        "bounds": {
+          "type": "number",
+          "min": 0,
+          "max": 500,
+          "units": {
+            "type": "unit",
+            "val": [{
+              "unit": "cm",
+              "exponent": 1
+            }]
+          }
+        }
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 60,
+        "units": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        }
+      }
+    },
+    {
+      "name": "age",
+      "type": "number",
+      "bounds": {
+        "type": "number",
+        "min": 0,
+        "max": 120
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 30
+      }
+    },
+
+    {
+      "name": "sex",
+      "type": "string",
+      "bounds": {
+        "type": "string",
+        "values": ["Male", "Female"]
+      },
+      "defaultVal": {
+        "type": "string",
+        "val": "Male"
+      }
+    },
+    {
+      "name": "race",
+      "type": "string",
+      "bounds": {
+        "type": "string",
+        "values": ["White", "White (Hispanic)", "Black or African American", "Asian", "American Indian or Alaska Native", "Native Hawaiian or Other Pacific Islander"]
+      },
+      "defaultVal": {
+        "type": "string",
+        "val": "White"
+      }
+    }
+  ],
+  "equations": [
+    {
+      "name": "bmi",
+      "root": {
+        "type": "call",
+        "functionName": "divide",
+        "params": [
+          {
+            "type": "call",
+            "functionName": "get_data_point",
+            "params": [
+              {
+                "type": "literal",
+                "value": {
+                  "type": "string",
+                  "val": "massKg"
+                }
+              }
+            ]
+          },
+          {
+            "type": "call",
+            "functionName": "power",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "divide",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "get_data_point",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "string",
+                          "val": "heightCm"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 100
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "literal",
+                "value": {
+                  "type": "number",
+                  "val": 2
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "HE",
+      "root": {
+        "type": "call",
+        "functionName": "do_bubble",
+        "params": [
+          {
+            "type": "literal",
+            "value": {
+              "type": "string",
+              "val": "divide"
+            }
+          },
+          {
+            "type": "call",
+            "functionName": "do_bubble",
+            "params": [
+              {
+                "type": "literal",
+                "value": {
+                  "type": "string",
+                  "val": "sqrt"
+                }
+              },
+              {
+                "type": "call",
+                "functionName": "do_bubble",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "subtract"
+                    }
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "power",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "multiply",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "heightCm"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0.5
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 2
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "do_bubble",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "string",
+                          "val": "power"
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "do_bubble",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "string",
+                              "val": "multiply"
+                            }
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0.15915494378
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "hipCm"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "call",
+            "functionName": "multiply",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "get_data_point",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "heightCm"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "literal",
+                "value": {
+                  "type": "number",
+                  "val": 0.5
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "WE",
+      "root": {
+        "type": "call",
+        "functionName": "divide",
+        "params": [
+          {
+            "type": "call",
+            "functionName": "sqrt",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "subtract",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "power",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "multiply",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "heightCm"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0.5
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 2
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "power",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "multiply",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0.15915494378
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "waistCm"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 2
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "call",
+            "functionName": "multiply",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "get_data_point",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "heightCm"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "literal",
+                "value": {
+                  "type": "number",
+                  "val": 0.5
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "eccL",
+      "root": {
+        "type": "call",
+        "functionName": "if",
+        "params": [
+          {
+            "type": "call",
+            "functionName": "streq",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "get_data_point",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "sex"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "literal",
+                "value": {
+                  "type": "string",
+                  "val": "Female"
+                }
+              }
+            ]
+          },
+          {
+            "type": "call",
+            "functionName": "add",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "add",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.995767
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "multiply",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -0.0000094
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "age"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "multiply",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.0000769
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "get_data_point",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "string",
+                              "val": "heightCm"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "multiply",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": -0.00064
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 21
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "call",
+            "functionName": "add",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "add",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.992986
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "multiply",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -0.00000769
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "age"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "multiply",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.0000472
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "get_data_point",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "string",
+                              "val": "heightCm"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "multiply",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": -0.00063
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 8
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "eccU",
+      "root": {
+        "type": "call",
+        "functionName": "if",
+        "params": [
+          {
+            "type": "call",
+            "functionName": "streq",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "get_data_point",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "sex"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "literal",
+                "value": {
+                  "type": "string",
+                  "val": "Female"
+                }
+              }
+            ]
+          },
+          {
+            "type": "call",
+            "functionName": "add",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "add",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.995767
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "multiply",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -0.0000094
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "age"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "multiply",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.0000769
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "get_data_point",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "string",
+                              "val": "heightCm"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "multiply",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": -0.00064
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 33
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "call",
+            "functionName": "add",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "add",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.992986
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "multiply",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -0.00000769
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "age"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "multiply",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.0000472
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "get_data_point",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "string",
+                              "val": "heightCm"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "multiply",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": -0.00063
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 19
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "roundness",
+      "root": {
+        "type": "call",
+        "functionName": "subtract",
+        "params": [
+          {
+            "type": "literal",
+            "value": {
+              "type": "number",
+              "val": 364.1724047
+            }
+          },
+          {
+            "type": "call",
+            "functionName": "multiply",
+            "params": [
+              {
+                "type": "literal",
+                "value": {
+                  "type": "number",
+                  "val": 365.5249684
+                }
+              },
+              {
+                "type": "call",
+                "functionName": "get_self_eq_val",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "WE"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "roundnessLower",
+      "root": {
+        "type": "call",
+        "functionName": "subtract",
+        "params": [
+          {
+            "type": "literal",
+            "value": {
+              "type": "number",
+              "val": 364.1724047
+            }
+          },
+          {
+            "type": "call",
+            "functionName": "multiply",
+            "params": [
+              {
+                "type": "literal",
+                "value": {
+                  "type": "number",
+                  "val": 365.5249684
+                }
+              },
+              {
+                "type": "call",
+                "functionName": "get_self_eq_val",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "eccL"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "roundnessUpper",
+      "root": {
+        "type": "call",
+        "functionName": "subtract",
+        "params": [
+          {
+            "type": "literal",
+            "value": {
+              "type": "number",
+              "val": 364.1724047
+            }
+          },
+          {
+            "type": "call",
+            "functionName": "multiply",
+            "params": [
+              {
+                "type": "literal",
+                "value": {
+                  "type": "number",
+                  "val": 365.5249684
+                }
+              },
+              {
+                "type": "call",
+                "functionName": "get_self_eq_val",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "eccU"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "fatPercent",
+      "root": {
+        "type": "literal",
+        "value": {
+          "type": "number",
+          "val": 0.05
+        }
+      }
+    },
+    {
+      "name": "vatPercent",
+      "root": {
+        "type": "call",
+        "functionName": "if_optional",
+        "params": [
+          {
+            "type": "literal",
+            "value": {
+              "type": "boolean",
+              "val": true
+            }
+          },
+          {
+            "type": "literal",
+            "value": {
+              "type": "string_list",
+              "val": ["hipCm"]
+            }
+          },
+          {
+            "type": "literal",
+            "value": {
+              "type": "string_list",
+              "val": []
+            }
+          },
+          {
+            "type": "literal",
+            "value": {
+              "type": "number",
+              "val": 0.07
+            }
+          },
+          {
+            "type": "literal",
+            "value": {
+              "type": "number",
+              "val": 0.23
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "units": {
+    "definitions": [
+      {
+        "name": "Centimeters",
+        "short": "cm",
+        "system": "metric"
+      },
+      {
+        "name": "Kilograms",
+        "short": "kg",
+        "system": "metric"
+      },
+      {
+        "name": "Pounds",
+        "short": "lb",
+        "system": "imperial"
+      },
+      {
+        "name": "Inches",
+        "short": "in",
+        "system": "imperial"
+      },
+      {
+        "name": "Feet",
+        "short": "ft",
+        "system": "imperial"
+      }
+    ],
+    "conversions": [
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "in",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "divide",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 2.54
+              }
+            }
+          ]
+        }
+      },
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "in",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "multiply",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 2.54
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "ft",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "multiply",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 0.0328084
+              }
+            }
+          ]
+        }
+      },
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "ft",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "cm",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "multiply",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 30.48
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "in",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "ft",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "divide",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 12
+              }
+            }
+          ]
+        }
+      },
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "ft",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "in",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "divide",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 12
+              }
+            }
+          ]
+        }
+      },
+
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "kg",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "lb",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "multiply",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 2.2
+              }
+            }
+          ]
+        }
+      },
+      {
+        "from": {
+          "type": "unit",
+          "val": [{
+            "unit": "lb",
+            "exponent": 1
+          }]
+        },
+        "target": {
+          "type": "unit",
+          "val": [{
+            "unit": "kg",
+            "exponent": 1
+          }]
+        },
+        "equation": {
+          "type": "call",
+          "functionName": "divide",
+          "params": [
+            {
+              "type": "call",
+              "functionName": "conversionVal",
+              "params": []
+            },
+            {
+              "type": "literal",
+              "value": {
+                "type": "number",
+                "val": 2.2
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "componentRoot": {
+    "name": "grid_layout",
+    "data": {
+      "pc": [
+        ["title", "title", "title", "title", "title", "title", "title", "title", "title"],
+        ["demographics", "demographics", "demographics", "demographics", "demographics", "demographics", "demographics", "demographics", "demographics"],
+        ["demographics", "demographics", "demographics", "demographics", "demographics", "demographics", "demographics", "demographics", "demographics"],
+        ["results", "results", "results", "results", "results", "results", "results", "results", "results"],
+        ["results", "results", "results", "results", "results", "results", "results", "results", "results"],
+        ["results", "results", "results", "results", "results", "results", "results", "results", "results"],
+        ["results", "results", "results", "results", "results", "results", "results", "results", "results"]
+      ],
+      "mobile": [
+        ["title", "title"],
+        ["title", "title"],
+        ["demographics", "demographics"],
+        ["demographics", "demographics"],
+        ["demographics", "demographics"],
+        ["demographics", "demographics"],
+        ["demographics", "demographics"],
+        ["results", "results"],
+        ["results", "results"],
+        ["results", "results"],
+        ["results", "results"],
+        ["results", "results"],
+        ["results", "results"]
+      ],
+      "isRoot": true,
+      "areas": [
+        ["title", {
+          "name": "text",
+          "data": {
+            "content": [
+              {
+                "type": "paragraph",
+                "align": "center",
+                "structure": "title",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Body Roundness Calculator"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "align": "start",
+                "structure": "text",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "This calculator calculates the shape of your body roundness from values."
+                  },
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "underline": true,
+                    "text": "Important: the equations used here are not the actual equations and values are for demonstration only."
+                  }
+                ]
+              }
+            ]
+          }
+        }],
+        ["demographics", {
+          "name": "section",
+          "data": {
+            "sectionName": "Demographics",
+            "root": {
+              "name": "grid_layout",
+              "data": {
+                "pc": [
+                  ["sex", "sex", "sex", "race", "race", "race", "age", "age", "age"],
+                  ["units", "height", "height", "weight", "weight", "waist", "waist", "hip", "hip"]
+                ],
+                "mobile": [
+                  ["units", "units"],
+                  ["sex", "race"],
+                  ["age", "weight"],
+                  ["height", "height"],
+                  ["waist", "hip"]
+                ],
+                "areas": [
+                  ["sex", {
+                    "name": "select",
+                    "data": {
+                      "style": "dropdown",
+                      "dpName": "sex",
+                      "label": "Sex"
+                    }
+                  }],
+                  ["race", {
+                    "name": "select",
+                    "data": {
+                      "style": "dropdown",
+                      "dpName": "race",
+                      "label": "Race"
+                    }
+                  }],
+                  ["age", {
+                    "name": "numeric_input",
+                    "data": {
+                      "dpName": "age",
+                      "label": "Age",
+                      "numberFormat": {
+                        "rounding": {
+                          "precision": 0,
+                          "method": "decimalstrim"
+                        }
+                      }
+                    }
+                  }],
+                  ["units", {
+                      "name": "unit_system_selector",
+                      "data": null
+                    }],
+                  [
+                    "height",
+                    {
+                      "name": "numeric_input",
+                      "data": {
+                        "dpName": "heightCm",
+                        "label": "Height",
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 1,
+                            "method": "decimalstrim"
+                          },
+                          "unitOptions": [
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "cm",
+                                "exponent": 1
+                              }]
+                            }],
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "in",
+                                "exponent": 1
+                              }]
+                            },{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "ft",
+                                "exponent": 1
+                              }]
+                            }],
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "in",
+                                "exponent": 1
+                              }]
+                            }]
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [
+                    "waist",
+                    {
+                      "name": "numeric_input",
+                      "data": {
+                        "dpName": "waistCm",
+                        "label": "Waist",
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 1,
+                            "method": "decimalstrim"
+                          },
+                          "unitOptions": [
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "cm",
+                                "exponent": 1
+                              }]
+                            }],
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "in",
+                                "exponent": 1
+                              }]
+                            }]
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [
+                    "hip",
+                    {
+                      "name": "numeric_input",
+                      "data": {
+                        "dpName": "hipCm",
+                        "label": "Hip Circumference",
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 1,
+                            "method": "decimalstrim"
+                          },
+                          "unitOptions": [
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "cm",
+                                "exponent": 1
+                              }]
+                            }],
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "in",
+                                "exponent": 1
+                              }]
+                            }]
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  [
+                    "weight",
+                    {
+                      "name": "numeric_input",
+                      "data": {
+                        "dpName": "massKg",
+                        "label": "Weight",
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 1,
+                            "method": "decimalstrim"
+                          },
+                          "unitOptions": [
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "kg",
+                                "exponent": 1
+                              }]
+                            }],
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "lb",
+                                "exponent": 1
+                              }]
+                            }]
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                ]
+              }
+            }
+          }
+        }],
+        ["results", {
+          "name": "section",
+          "data": {
+            "sectionName": "Results",
+            "root": {
+              "name": "grid_layout",
+              "data": {
+                "pc": [
+                  ["bmi", "bmi", "bmi", "vat", "vat", "vat", "graph", "graph", "graph"],
+                  ["bmi", "bmi", "bmi", "vat", "vat", "vat", "graph", "graph", "graph"],
+                  ["fp", "fp", "fp", "roundness", "roundness", "roundness", "graph", "graph", "graph"],
+                  ["fp", "fp", "fp", "roundness", "roundness", "roundness", "graph", "graph", "graph"]
+                ],
+                "mobile": [
+                  ["bmi", "bmi"],
+                  ["vat", "vat"],
+                  ["fp", "fp"],
+                  ["roundness", "roundness"],
+                  ["graph", "graph"],
+                  ["graph", "graph"]
+                ],
+                "areas": [
+                  ["bmi", {
+                    "name": "value_range",
+                    "data": {
+                      "label": "BMI",
+                      "top": {
+                        "value": {
+                          "type": "call",
+                          "functionName": "get_eq_value",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "bmi"
+                              }
+                            }
+                          ]
+                        },
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 0,
+                            "method": "decimals"
+                          }
+                        },
+                        "ranges": {
+                          "type": "call",
+                          "functionName": "create_value_range",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 10
+                              }
+                            },
+
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 18.5
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#FF7171"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Underweight"
+                              }
+                            },
+
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 25
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#0D9700"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Healthy"
+                              }
+                            },
+
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 30
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#FFCD28"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Overweight"
+                              }
+                            },
+
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 50
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#FF7171"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Obese"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }],
+                  ["vat", {
+                    "name": "value_range",
+                    "data": {
+                      "label": "VAT",
+                      "top": {
+                        "value": {
+                          "type": "call",
+                          "functionName": "get_eq_value",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "vatPercent"
+                              }
+                            }
+                          ]
+                        },
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 2,
+                            "method": "decimals"
+                          }
+                        },
+                        "ranges": {
+                          "type": "call",
+                          "functionName": "if",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "streq",
+                              "params": [
+                                {
+                                  "type": "call",
+                                  "functionName": "get_data_point",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "string",
+                                        "val": "sex"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Male"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "call",
+                              "functionName": "create_value_range",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.21
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#0D9700"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Normal"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.33
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FFCD28"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Elevated Risk"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.5
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FF7171"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "High Risk"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "call",
+                              "functionName": "create_value_range",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.15
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#0D9700"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Normal"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.24
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FFCD28"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Elevated Risk"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.5
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FF7171"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "High Risk"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "bottom": {
+                        "value": {
+                          "type": "literal",
+                          "value": {
+                            "type": "number",
+                            "val": 45.23,
+                            "units": {
+                              "type": "unit",
+                              "val": [{
+                                "unit": "kg",
+                                "exponent": 1
+                              }]
+                            }
+                          }
+                        },
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 1,
+                            "method": "decimals"
+                          },
+                          "unitOptions": [
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "kg",
+                                "exponent": 1
+                              }]
+                            }],[{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "lb",
+                                "exponent": 1
+                              }]
+                            }]
+                          ]
+                        }
+                      }
+                    }
+                  }],
+                  ["fp", {
+                    "name": "value_range",
+                    "data": {
+                      "label": "Fat Percent",
+                      "top": {
+                        "value": {
+                          "type": "call",
+                          "functionName": "get_eq_value",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "fatPercent"
+                              }
+                            }
+                          ]
+                        },
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 2,
+                            "method": "decimals"
+                          }
+                        },
+                        "ranges": {
+                          "type": "call",
+                          "functionName": "if",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "streq",
+                              "params": [
+                                {
+                                  "type": "call",
+                                  "functionName": "get_data_point",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "string",
+                                        "val": "sex"
+                                      }
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Male"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "call",
+                              "functionName": "create_value_range",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.2
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#0D9700"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Normal"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.25
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FFCD28"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Elevated Risk"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.3
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FFCD28"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Increased Risk"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.5
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FF7171"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "High Risk"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "call",
+                              "functionName": "create_value_range",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.3
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#0D9700"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Normal"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.35
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FFCD28"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Elevated Risk"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.4
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FFCD28"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "Increased Risk"
+                                  }
+                                },
+
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.5
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "#FF7171"
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "High Risk"
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      "bottom": {
+                        "value": {
+                          "type": "literal",
+                          "value": {
+                            "type": "number",
+                            "val": 45.23,
+                            "units": {
+                              "type": "unit",
+                              "val": [{
+                                "unit": "kg",
+                                "exponent": 1
+                              }]
+                            }
+                          }
+                        },
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 1,
+                            "method": "decimals"
+                          },
+                          "unitOptions": [
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "kg",
+                                "exponent": 1
+                              }]
+                            }],[{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "lb",
+                                "exponent": 1
+                              }]
+                            }]
+                          ]
+                        }
+                      }
+                    }
+                  }],
+                  ["roundness", {
+                    "name": "value_range",
+                    "data": {
+                      "label": "Roundness",
+                      "top": {
+                        "value": {
+                          "type": "call",
+                          "functionName": "get_eq_value",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "roundness"
+                              }
+                            }
+                          ]
+                        },
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 2,
+                            "method": "decimals"
+                          }
+                        },
+                        "ranges":                             {
+                          "type": "call",
+                          "functionName": "create_value_range",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "subtract",
+                              "params": [
+                                {
+                                  "type": "call",
+                                  "functionName": "multiply",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "number",
+                                        "val": 2
+                                      }
+                                    },
+                                    {
+                                      "type": "call",
+                                      "functionName": "get_eq_value",
+                                      "params": [
+                                        {
+                                          "type": "literal",
+                                          "value": {
+                                            "type": "string",
+                                            "val": "roundnessLower"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "call",
+                                  "functionName": "get_eq_value",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "string",
+                                        "val": "roundnessUpper"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+
+                            {
+                              "type": "call",
+                              "functionName": "get_eq_value",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "roundnessLower"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#FF7171"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Elevated Risk"
+                              }
+                            },
+
+                            {
+                              "type": "call",
+                              "functionName": "get_eq_value",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "roundnessUpper"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#0D9700"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Normal"
+                              }
+                            },
+
+                            {
+                              "type": "call",
+                              "functionName": "subtract",
+                              "params": [
+                                {
+                                  "type": "call",
+                                  "functionName": "multiply",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "number",
+                                        "val": 2
+                                      }
+                                    },
+                                    {
+                                      "type": "call",
+                                      "functionName": "get_eq_value",
+                                      "params": [
+                                        {
+                                          "type": "literal",
+                                          "value": {
+                                            "type": "string",
+                                            "val": "roundnessUpper"
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "call",
+                                  "functionName": "get_eq_value",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "string",
+                                        "val": "roundnessLower"
+                                      }
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#FF7171"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Elevated Risk"
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "bottom": {
+                        "value": {
+                          "type": "literal",
+                          "value": {
+                            "type": "number",
+                            "val": 45.23,
+                            "units": {
+                              "type": "unit",
+                              "val": [{
+                                "unit": "kg",
+                                "exponent": 1
+                              }]
+                            }
+                          }
+                        },
+                        "numberFormat": {
+                          "rounding": {
+                            "precision": 1,
+                            "method": "decimals"
+                          },
+                          "unitOptions": [
+                            [{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "kg",
+                                "exponent": 1
+                              }]
+                            }],[{
+                              "type": "unit",
+                              "val": [{
+                                "unit": "lb",
+                                "exponent": 1
+                              }]
+                            }]
+                          ]
+                        }
+                      }
+                    }
+                  }],
+                  ["graph", {
+                    "name": "shape_renderer",
+                    "data": {
+                      "viewBox": {
+                        "x1": -2,
+                        "y1": -2,
+                        "x2": 2,
+                        "y2": 2
+                      },
+                      "shapes": [
+                        {
+                          "type": "call",
+                          "functionName": "create_text",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Healthy Range"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0.2
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0.5
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": -1.75
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "call",
+                          "functionName": "create_text",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "Your Roundness"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0.2
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0.5
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": -1.55
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "call",
+                          "functionName": "style_shape",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "create_rect",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.3
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": -1.9
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.45
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": -1.75
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "none"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#00C65A"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "call",
+                          "functionName": "style_shape",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "create_rect",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.3
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": -1.7
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0.45
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": -1.55
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "none"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#78399D"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "call",
+                          "functionName": "style_shape",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "create_ellipse",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+                                {
+                                  "type": "call",
+                                  "functionName": "multiply",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "number",
+                                        "val": 2
+                                      }
+                                    },
+                                    {
+                                      "type": "call",
+                                      "functionName": "sqrt",
+                                      "params": [
+                                        {
+                                          "type": "call",
+                                          "functionName": "sqrt",
+                                          "params": [
+                                            {
+                                              "type": "call",
+                                              "functionName": "subtract",
+                                              "params": [
+                                                {
+                                                  "type": "literal",
+                                                  "value": {
+                                                    "type": "number",
+                                                    "val": 0.25
+                                                  }
+                                                },
+                                                {
+                                                  "type": "call",
+                                                  "functionName": "multiply",
+                                                  "params": [
+                                                    {
+                                                      "type": "literal",
+                                                      "value": {
+                                                        "type": "number",
+                                                        "val": 0.25
+                                                      }
+                                                    },
+                                                    {
+                                                      "type": "call",
+                                                      "functionName": "power",
+                                                      "params": [
+                                                        {
+                                                          "type": "call",
+                                                          "functionName": "get_eq_value",
+                                                          "params": [
+                                                            {
+                                                              "type": "literal",
+                                                              "value": {
+                                                                "type": "string",
+                                                                "val": "eccL"
+                                                              }
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "type": "literal",
+                                                          "value": {
+                                                            "type": "number",
+                                                            "val": 2
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 1.41421356
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#00C65A"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "transparent"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0.01
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "call",
+                          "functionName": "style_shape",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "create_ellipse",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+                                {
+                                  "type": "call",
+                                  "functionName": "multiply",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "number",
+                                        "val": 2
+                                      }
+                                    },
+                                    {
+                                      "type": "call",
+                                      "functionName": "sqrt",
+                                      "params": [
+                                        {
+                                          "type": "call",
+                                          "functionName": "sqrt",
+                                          "params": [
+                                            {
+                                              "type": "call",
+                                              "functionName": "subtract",
+                                              "params": [
+                                                {
+                                                  "type": "literal",
+                                                  "value": {
+                                                    "type": "number",
+                                                    "val": 0.25
+                                                  }
+                                                },
+                                                {
+                                                  "type": "call",
+                                                  "functionName": "multiply",
+                                                  "params": [
+                                                    {
+                                                      "type": "literal",
+                                                      "value": {
+                                                        "type": "number",
+                                                        "val": 0.25
+                                                      }
+                                                    },
+                                                    {
+                                                      "type": "call",
+                                                      "functionName": "power",
+                                                      "params": [
+                                                        {
+                                                          "type": "call",
+                                                          "functionName": "get_eq_value",
+                                                          "params": [
+                                                            {
+                                                              "type": "literal",
+                                                              "value": {
+                                                                "type": "string",
+                                                                "val": "eccU"
+                                                              }
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "type": "literal",
+                                                          "value": {
+                                                            "type": "number",
+                                                            "val": 2
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 1.41421356
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#00C65A"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "transparent"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0.01
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "call",
+                          "functionName": "style_shape",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "create_ellipse",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 0
+                                  }
+                                },
+                                {
+                                  "type": "call",
+                                  "functionName": "multiply",
+                                  "params": [
+                                    {
+                                      "type": "literal",
+                                      "value": {
+                                        "type": "number",
+                                        "val": 2
+                                      }
+                                    },
+                                    {
+                                      "type": "call",
+                                      "functionName": "sqrt",
+                                      "params": [
+                                        {
+                                          "type": "call",
+                                          "functionName": "sqrt",
+                                          "params": [
+                                            {
+                                              "type": "call",
+                                              "functionName": "subtract",
+                                              "params": [
+                                                {
+                                                  "type": "literal",
+                                                  "value": {
+                                                    "type": "number",
+                                                    "val": 0.25
+                                                  }
+                                                },
+                                                {
+                                                  "type": "call",
+                                                  "functionName": "multiply",
+                                                  "params": [
+                                                    {
+                                                      "type": "literal",
+                                                      "value": {
+                                                        "type": "number",
+                                                        "val": 0.25
+                                                      }
+                                                    },
+                                                    {
+                                                      "type": "call",
+                                                      "functionName": "power",
+                                                      "params": [
+                                                        {
+                                                          "type": "call",
+                                                          "functionName": "get_eq_value",
+                                                          "params": [
+                                                            {
+                                                              "type": "literal",
+                                                              "value": {
+                                                                "type": "string",
+                                                                "val": "WE"
+                                                              }
+                                                            }
+                                                          ]
+                                                        },
+                                                        {
+                                                          "type": "literal",
+                                                          "value": {
+                                                            "type": "number",
+                                                            "val": 2
+                                                          }
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "number",
+                                    "val": 1.41421356
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "#78399D"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "transparent"
+                              }
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 0.01
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }]
+                ]
+              }
+            }
+          }
+        }]
+      ]
+    }
+  }
+}
