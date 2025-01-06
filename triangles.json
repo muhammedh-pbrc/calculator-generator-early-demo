@@ -1,0 +1,5173 @@
+{
+  "dataPoints": [
+    {
+      "name": "a",
+      "type": "number",
+      "bounds": {
+        "type": "number",
+        "min": 0,
+        "max": 10
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 3
+      }
+    },
+    {
+      "name": "b",
+      "type": "number",
+      "bounds": {
+        "type": "number",
+        "min": 0,
+        "max": 10
+      },
+      "defaultVal": {
+        "type": "number",
+        "val": 4
+      }
+    }
+  ],
+  "equations": [
+    {
+      "name": "c",
+      "root": {
+        "type": "call",
+        "functionName": "sqrt",
+        "params": [
+          {
+            "type": "call",
+            "functionName": "add",
+            "params": [
+              {
+                "type": "call",
+                "functionName": "power",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "get_data_point",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "string",
+                          "val": "a"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 2
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "power",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "get_data_point",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "string",
+                          "val": "b"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 2
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }    }
+  ],
+  "units": {
+    "definitions": [],
+    "conversions": []
+  },
+  "componentRoot": {
+    "name": "grid_layout",
+    "data": {
+      "pc": [
+        ["title", "title", "title"],
+        ["lega", "diagram", "diagram"],
+        ["legb", "diagram", "diagram"],
+        ["legc", "diagram", "diagram"],
+        ["legc", "diagram", "diagram"]
+      ],
+      "mobile": [
+        ["title", "title"],
+        ["lega", "legb"],
+        ["legc", "legc"],
+        ["legc", "legc"],
+        ["legc", "legc"],
+        ["diagram", "diagram"],
+        ["diagram", "diagram"]
+      ],
+      "isRoot": true,
+      "areas": [
+        ["title", {
+          "name": "text",
+          "data": {
+            "content": [
+              {
+                "type": "paragraph",
+                "align": "center",
+                "structure": "title",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "Pythagorean Theorem Demonstration"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "align": "center",
+                "structure": "text",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "Enter the leg lengths of the triangle to visualize the pythagorean theorem."
+                  }
+                ]
+              }
+            ]
+          }
+        }],
+        [
+          "lega",
+          {
+            "name": "numeric_input",
+            "data": {
+              "dpName": "a",
+              "label": "Leg A",
+              "numberFormat": {
+                "rounding": {
+                  "precision": 2,
+                  "method": "decimalstrim"
+                }
+              }
+            }
+          }
+        ],
+        [
+          "legb",
+          {
+            "name": "numeric_input",
+            "data": {
+              "dpName": "b",
+              "label": "Leg B",
+              "numberFormat": {
+                "rounding": {
+                  "precision": 2,
+                  "method": "decimalstrim"
+                }
+              }
+            }
+          }
+        ],
+        ["legc", {
+          "name": "text",
+          "data": {
+            "content": [
+              {
+                "type": "paragraph",
+                "align": "center",
+                "structure": "subheader",
+                "content": [
+                  {
+                    "type": "text",
+                    "bold": true,
+                    "text": "The third leg of the triangle"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "align": "start",
+                "structure": "text",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "a"
+                  },
+                  {
+                    "type": "text",
+                    "script": "superscript",
+                    "text": "2"
+                  },
+                  {
+                    "type": "text",
+                    "text": " + b"
+                  },
+                  {
+                    "type": "text",
+                    "script": "superscript",
+                    "text": "2"
+                  },
+                  {
+                    "type": "text",
+                    "text": " = c"
+                  },
+                  {
+                    "type": "text",
+                    "script": "superscript",
+                    "text": "2"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "align": "start",
+                "structure": "text",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "("
+                  },
+                  {
+                    "type": "reference",
+                    "equation": {
+                      "type": "call",
+                      "functionName": "get_data_point",
+                      "params": [
+                        {
+                          "type": "literal",
+                          "value": {
+                            "type": "string",
+                            "val": "a"
+                          }
+                        }
+                      ]
+                    },
+                    "numberFormat": {
+                      "rounding": {
+                        "precision": 2,
+                        "method": "decimalstrim"
+                      }
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "script": "superscript",
+                    "text": "2"
+                  },
+                  {
+                    "type": "text",
+                    "text": " + ("
+                  },
+                  {
+                    "type": "reference",
+                    "equation": {
+                      "type": "call",
+                      "functionName": "get_data_point",
+                      "params": [
+                        {
+                          "type": "literal",
+                          "value": {
+                            "type": "string",
+                            "val": "b"
+                          }
+                        }
+                      ]
+                    },
+                    "numberFormat": {
+                      "rounding": {
+                        "precision": 2,
+                        "method": "decimalstrim"
+                      }
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": ")"
+                  },
+                  {
+                    "type": "text",
+                    "script": "superscript",
+                    "text": "2"
+                  },
+                  {
+                    "type": "text",
+                    "text": " = c"
+                  },
+                  {
+                    "type": "text",
+                    "script": "superscript",
+                    "text": "2"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "align": "start",
+                "structure": "text",
+                "content": [
+                  {
+                    "type": "reference",
+                    "equation": {
+                      "type": "call",
+                      "functionName": "power",
+                      "params": [
+                        {
+                          "type": "call",
+                          "functionName": "get_data_point",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "a"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "literal",
+                          "value": {
+                            "type": "number",
+                            "val": 2
+                          }
+                        }
+                      ]
+                    },
+                    "numberFormat": {
+                      "rounding": {
+                        "precision": 2,
+                        "method": "decimalstrim"
+                      }
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " + "
+                  },
+                  {
+                    "type": "reference",
+                    "equation": {
+                      "type": "call",
+                      "functionName": "power",
+                      "params": [
+                        {
+                          "type": "call",
+                          "functionName": "get_data_point",
+                          "params": [
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "string",
+                                "val": "b"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "literal",
+                          "value": {
+                            "type": "number",
+                            "val": 2
+                          }
+                        }
+                      ]
+                    },
+                    "numberFormat": {
+                      "rounding": {
+                        "precision": 2,
+                        "method": "decimalstrim"
+                      }
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " = c"
+                  },
+                  {
+                    "type": "text",
+                    "script": "superscript",
+                    "text": "2"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "align": "start",
+                "structure": "text",
+                "content": [
+                  {
+                    "type": "reference",
+                    "equation": {
+                      "type": "call",
+                      "functionName": "add",
+                      "params": [
+                        {
+                          "type": "call",
+                          "functionName": "power",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "get_data_point",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "a"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 2
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "call",
+                          "functionName": "power",
+                          "params": [
+                            {
+                              "type": "call",
+                              "functionName": "get_data_point",
+                              "params": [
+                                {
+                                  "type": "literal",
+                                  "value": {
+                                    "type": "string",
+                                    "val": "b"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "literal",
+                              "value": {
+                                "type": "number",
+                                "val": 2
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "numberFormat": {
+                      "rounding": {
+                        "precision": 2,
+                        "method": "decimalstrim"
+                      }
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "text": " = c"
+                  },
+                  {
+                    "type": "text",
+                    "script": "superscript",
+                    "text": "2"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "align": "start",
+                "structure": "text",
+                "content": [
+                  {
+                    "type": "text",
+                    "text": "c = "
+                  },
+                  {
+                    "type": "reference",
+                    "equation": {
+                      "type": "call",
+                      "functionName": "get_eq_value",
+                      "params": [
+                        {
+                          "type": "literal",
+                          "value": {
+                            "type": "string",
+                            "val": "c"
+                          }
+                        }
+                      ]                    },
+                    "numberFormat": {
+                      "rounding": {
+                        "precision": 2,
+                        "method": "decimalstrim"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }],
+        ["diagram", {
+          "name": "shape_renderer",
+          "data": {
+            "viewBox": {
+              "x1": -11,
+              "y1": -18,
+              "x2": 18,
+              "y2": 11
+            },
+            "shapes": [
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_rect",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "subtract",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "subtract",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "none"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#75e2ff"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_rect",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "add",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "add",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "none"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#50fe9f"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_polygon",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "subtract",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "add",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "none"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#000000"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_polygon",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "subtract",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "add",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "add",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "subtract",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "add",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "call",
+                        "functionName": "subtract",
+                        "params": [
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 0
+                            }
+                          },
+                          {
+                            "type": "call",
+                            "functionName": "add",
+                            "params": [
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "a"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "b"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "none"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#ff531e"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0
+                    }
+                  }
+                ]
+              },
+
+
+
+
+
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -17
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -17
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -16
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -16
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -15
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -15
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -14
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -14
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -13
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -13
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -12
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -12
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -10
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -10
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -9
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -9
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -8
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -8
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -7
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -7
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -6
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -6
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -5
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -5
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -4
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -4
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -3
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -3
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -2
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -2
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -1
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -1
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 1
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 1
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 2
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 2
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 3
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 3
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 4
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 4
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 5
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 5
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 6
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 6
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 7
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 7
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 8
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 8
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 9
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 9
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 10
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 10
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -10
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -10
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -9
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -9
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -8
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -8
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -7
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -7
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -6
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -6
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -5
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -5
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -4
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -4
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -3
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -3
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -2
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -2
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -1
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -1
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 1
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 1
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 2
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 2
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 3
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 3
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 4
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 4
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 5
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 5
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 6
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 6
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 7
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 7
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 8
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 8
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 9
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 9
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 10
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 10
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 12
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 12
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 13
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 13
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 14
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 14
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 15
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 15
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 16
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 16
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "style_shape",
+                "params": [
+                  {
+                    "type": "call",
+                    "functionName": "create_line",
+                    "params": [
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 17
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": -18
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 17
+                        }
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 11
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "#aaa"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "transparent"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.05
+                    }
+                  }
+                ]
+              },
+
+
+              {
+                "type": "call",
+                "functionName": "create_text",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "a"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 1
+                    }
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "subtract",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.5
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.5
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "create_text",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "2"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.7
+                    }
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "subtract",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "a"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+
+              {
+                "type": "call",
+                "functionName": "create_text",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "b"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 1
+                    }
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "subtract",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.5
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.5
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "create_text",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "2"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.7
+                    }
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "subtract",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "get_data_point",
+                            "params": [
+                              {
+                                "type": "literal",
+                                "value": {
+                                  "type": "string",
+                                  "val": "b"
+                                }
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+
+              {
+                "type": "call",
+                "functionName": "create_text",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "c"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 1
+                    }
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "subtract",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "add",
+                            "params": [
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "a"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "b"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.5
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "add",
+                            "params": [
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "a"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "b"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0.5
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "call",
+                "functionName": "create_text",
+                "params": [
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "string",
+                      "val": "2"
+                    }
+                  },
+                  {
+                    "type": "literal",
+                    "value": {
+                      "type": "number",
+                      "val": 0.7
+                    }
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "subtract",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "add",
+                            "params": [
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "a"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "b"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": 2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "type": "call",
+                    "functionName": "add",
+                    "params": [
+                      {
+                        "type": "call",
+                        "functionName": "divide",
+                        "params": [
+                          {
+                            "type": "call",
+                            "functionName": "add",
+                            "params": [
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "a"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "call",
+                                "functionName": "get_data_point",
+                                "params": [
+                                  {
+                                    "type": "literal",
+                                    "value": {
+                                      "type": "string",
+                                      "val": "b"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "type": "literal",
+                            "value": {
+                              "type": "number",
+                              "val": -2
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "literal",
+                        "value": {
+                          "type": "number",
+                          "val": 0
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }]
+      ]
+    }
+  }
+}
